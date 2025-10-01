@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ghentil Catering — Deliciously Yours</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <div class="brand">
+        <div class="logo">T&S</div>
+        <div>
+          <div style="font-weight:700">Taste N Stay Catering</div>
+          <div style="font-size:12px;color:var()">
+            Events • Weddings • Corporate • Private
+          </div>
+        </div>
+      </div>
+      <nav>
+        <a href="#menu">Menu</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#contact">Contact</a>
+        <a class="cta" id="bookNowBtn">Book Now</a>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <main>
+      <section class="hero">
+        <div class="hero-card">
+          <h1>Delicious food. Memorable events.</h1>
+          <p class="lead">
+            We craft bespoke menus and deliver flawless catering for weddings, 
+            corporate events, and private celebrations. Fresh ingredients, 
+            beautiful presentation, and professional service.
+          </p>
+          <div class="buttons">
+            <button class="btn-primary" id="bookTop">Book an Event</button>
+            <button 
+              class="btn-outline" 
+              onclick="document.getElementById('menu').scrollIntoView({behavior:'smooth'})"
+            >
+              View Menu
+            </button>
+          </div>
+
+          <div class="facts" aria-hidden="true">
+            <div class="fact">
+              <strong>10+</strong>
+              <span style="color:var(--muted);font-size:13px">Years Experience</span>
+            </div>
+            <div class="fact">
+              <strong>2000+</strong>
+              <span style="color:var(--muted);font-size:13px">Events Served</span>
+            </div>
+            <div class="fact">
+              <strong>120+</strong>
+              <span style="color:var(--muted);font-size:13px">Menu Items</span>
+            </div>
+          </div>
+
+          <div style="margin-top:16px;color:var();font-size:14px">
+            Custom packages available. Ask about dietary options 
+            (vegetarian, vegan, halal).
+          </div>
+        </div>
+
+        <aside style="display:flex;flex-direction:column;gap:12px">
+          <div style="border-radius:14px;overflow:hidden">
+            <img 
+              src="/img/fries.jpg" 
+              alt="Plated food" 
+              style="width:100%;height:260px;object-fit:cover" 
+            />
+          </div>
+          <div style="display:flex;gap:10px">
+            <img 
+              src="https://images.unsplash.com/photo-1543362906-acfc16c67564?q=80&w=500&auto=format&fit=crop" 
+              alt="chef" 
+              style="width:50%;height:120px;object-fit:cover;border-radius:10px" 
+            />
+            <img 
+              src="https://images.unsplash.com/photo-1478145046317-39f10e56b5e9?q=80&w=500&auto=format&fit=crop" 
+              alt="setup" 
+              style="width:50%;height:120px;object-fit:cover;border-radius:10px" 
+            />
+          </div>
+        </aside>
+      </section>
+
+      <!-- Services & Menu -->
+      <section id="menu" class="grid-2">
+        <!-- <a href="#service"></a> -->
+        <div class="service">
+          <h3 style="margin-top:0">Our Services</h3>
+          <ul style="padding-left:16px;color:var()">
+            <li>Wedding Catering — Full-service or buffet.</li>
+            <li>Corporate Events — Lunches, conferences, cocktail receptions.</li>
+            <li>Private Parties — Birthdays, anniversaries, graduations.</li>
+            <li>Menu Design & Tasting Sessions.</li>
+            <li>Delivery & Setup.</li>
+          </ul>
+          <div style="margin-top:12px">
+            <strong>Starting at:</strong>
+            <div style="font-size:20px;margin-top:6px">GHS 45 per person</div>
+            <div style="color:var(--muted);font-size:13px">
+              (Custom packages available — enquire for group discounts)
+            </div>
+          </div>
+        </div>
+
+        <div class="service">
+          <h3 style="margin-top:0">Sample Menu</h3>
+          <div class="menu-list">
+            <div class="menu-item">
+              <span>Jollof Rice with Grilled Chicken</span><span>GHS 35</span>
+            </div>
+            <div class="menu-item">
+              <span>Banku & Okro Stew (Vegetarian option)</span><span>GHS 38</span>
+            </div>
+            <div class="menu-item">
+              <span>Beef Kebabs & Mixed Salad</span><span>GHS 40</span>
+            </div>
+            <div class="menu-item">
+              <span>Assorted Canapés (per dozen)</span><span>GHS 60</span>
+            </div>
+            <div class="menu-item">
+              <span>Fruit Platter</span><span>GHS 25</span>
+            </div>
+          </div>
+          <div style="margin-top:10px;color:var(--muted);font-size:13px">
+            Prices are guides. Final quote provided after event details and guest count.
+          </div>
+        </div>
+      </section>
+
+      <!-- Gallery -->
+      <section id="gallery">
+        <h3 style="margin-top:32px">Gallery</h3>
+        <div class="gallery" aria-hidden="true">
+          <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1400&auto=format&fit=crop" alt="food 1" />
+          <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?q=80&w=1400&auto=format&fit=crop" alt="food 2" />
+          <img src="/img/yam.jpg" alt="food 3" />
+          <img src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?q=80&w=1400&auto=format&fit=crop" alt="food 4" />
+          <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=1400&auto=format&fit=crop" alt="food 5" />
+          <img src="https://images.unsplash.com/photo-1528605248644-14dd04022da1?q=80&w=1400&auto=format&fit=crop" alt="food 6" />
+          <img src="https://unsplash.com/photos/a-wooden-cutting-board-topped-with-lots-of-food-J6IraTysKvU" alt="food 7" />
+          <img src="/img/fries.jpg" alt="food 8" />
+          <img src="https://images.unsplash.com/photo-1542367594-de8aefeb1d44?q=80&w=1400&auto=format&fit=crop" alt="food 9" />
+          <img src="https://images.unsplash.com/photo-1516685018646-549198525c1c?q=80&w=1400&auto=format&fit=crop" alt="food 10" />
+          <img src="https://images.unsplash.com/photo-1473093226795-af9932fe5856?q=80&w=1400&auto=format&fit=crop" alt="food 11" />
+          <img src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?q=80&w=1400&auto=format&fit=crop" alt="food 12" />
+        </div>
+      </section>
+
+      <!-- Testimonials -->
+      <section id="testimonials">
+        <h3 style="margin-top:32px">What clients say</h3>
+        <div class="testimonials">
+          <div class="testimonial">
+            <strong>Elise N.</strong>
+            <p style="color:var(--muted);margin-top:8px">
+              "Professional team and the food was incredible. Every guest asked for seconds — highly recommend!"
+            </p>
+          </div>
+          <div class="testimonial">
+            <strong>Kwame A.</strong>
+            <p style="color:var(--muted);margin-top:8px">
+              "Flawless set up and on-time service. Booking was easy and the menu tasting helped a lot."
+            </p>
+          </div>
+          <div class="testimonial">
+            <strong>Rita M.</strong>
+            <p style="color:var(--muted);margin-top:8px">
+              "Amazing presentation and great value. Our wedding reception glowed because of them."
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact">
+        <h3 style="margin-top:32px">Contact & Enquiries</h3>
+        <div style="display:grid;grid-template-columns:1fr 360px;gap:18px;margin-top:12px;align-items:start">
+          <div style="background:var(--card);padding:16px;border-radius:12px">
+            <form id="contactForm" onsubmit="return handleContact(event)">
+              <label for="name">Full name</label>
+              <input id="name" required placeholder="Your full name" />
+
+              <label for="email" style="margin-top:10px">Email</label>
+              <input id="email" type="email" required placeholder="you@example.com" />
+
+              <label for="message" style="margin-top:10px">Message</label>
+              <textarea 
+                id="message" 
+                rows="4" 
+                placeholder="Tell us about your event: date, guest count, type of service..." 
+                required
+              ></textarea>
+
+              <div style="margin-top:12px;display:flex;gap:10px;align-items:center">
+                <button class="btn-primary" type="submit">Send Enquiry</button>
+                <button type="button" class="btn-outline" onclick="openBooking()">Quick Book</button>
+              </div>
+            </form>
+          </div>
+
+          <aside style="background:var(--glass);padding:16px;border-radius:12px;color:var(--muted)">
+            <div><strong>Phone:</strong> +233 24 000 0000</div>
+            <div style="margin-top:8px"><strong>Email:</strong> hello@ghentilcatering.com</div>
+            <div style="margin-top:8px"><strong>Address:</strong> Accra, Ghana</div>
+            <div style="margin-top:10px;font-size:13px">
+              Open Mon-Sat • Tasting appointments by request
+            </div>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+     <!-- Add this in <head> for Font Awesome icons -->
+    
+
+    <footer style="background:linear-gradient(135deg, #111 0%, #222 40%, #b8860b 100%); color:#eee; padding:40px 20px; margin-top:40px;">
+    <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:flex-start; gap:20px; max-width:1200px; margin:0 auto;">
+        
+        <!-- Brand & Motto -->
+        <div style="flex:1; min-width:200px;">
+        <strong style="font-size:18px;">Ghentil Catering</strong>
+        <div style="font-size:13px; color:#ddd; margin-top:6px;">
+            Handcrafted catering for every celebration.
+        </div>
+        <!-- Social Media -->
+        <div style="margin-top:15px; display:flex; gap:15px; font-size:20px;">
+            <a href="https://facebook.com" target="_blank" style="color:#fff; text-decoration:none;">
+            <i class="fab fa-facebook"></i>
+            </a>
+            <a href="https://instagram.com" target="_blank" style="color:#fff; text-decoration:none;">
+            <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://tiktok.com" target="_blank" style="color:#fff; text-decoration:none;">
+            <i class="fab fa-tiktok"></i>
+            </a>
+        </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div style="flex:1; min-width:150px;">
+        <div style="font-weight:bold; margin-bottom:8px;">Quick Links</div>
+        <ul style="list-style:none; padding:0; margin:0; font-size:13px; color:#ddd;">
+            <li><a href="#home" style="color:#fff; text-decoration:none;">Home</a></li>
+            <li><a href="#menu" style="color:#fff; text-decoration:none;">Menu</a></li>
+            <li><a href="#about" style="color:#fff; text-decoration:none;">About</a></li>
+            <li><a href="#contact" style="color:#fff; text-decoration:none;">Contact</a></li>
+        </ul>
+        </div>
+
+        <!-- Contact Info -->
+        <div style="flex:1; min-width:200px;">
+        <div style="font-weight:bold; margin-bottom:8px;">Contact</div>
+        <div style="font-size:13px; color:#ddd;">
+            📍 Accra, Ghana <br>
+            📞 +233 24 123 4567 <br>
+            ✉️ info@ghentilcatering.com
+        </div>
+        </div>
+
+        <!-- Map Location -->
+        <div style="flex:1; min-width:250px;">
+        <div style="font-weight:bold; margin-bottom:8px;">Find Us</div>
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3971.034034547037!2d-0.18696492524319252!3d5.603716533447476!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdf9b1e4b0d7f1b%3A0x8bb5f1f2e75c9c0!2sAccra%2C%20Ghana!5e0!3m2!1sen!2sgh!4v1695766930484!5m2!1sen!2sgh" 
+            width="100%" 
+            height="150" 
+            style="border:0; border-radius:8px;" 
+            allowfullscreen="" 
+            loading="lazy">
+        </iframe>
+        </div>
+
+    </div>
+
+    <div style="text-align:center; margin-top:30px; font-size:13px; color:#eee;">
+        © <span id="year"></span> Ghentil Catering. All rights reserved.
+    </div>
+    </footer>
+
+
+    <!-- Script -->
+     <script src="script.js"></script>
+
+</body>
+</html>
