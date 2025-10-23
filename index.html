@@ -1,306 +1,481 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Ghentil Catering — Deliciously Yours</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Taste N Stay | Catering Services</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script>
+    // WhatsApp form handler
+    function sendToWhatsApp(event) {
+      event.preventDefault();
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const message = document.getElementById("message").value;
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <script src="https://cdn.tailwindcss.com"></script>
+      const whatsappNumber = "+233596027754";
+      const text = `Hello Taste & Stay!%0A%0AName: ${name}%0AEmail: ${email}%0AMessage: ${message}`;
+      const url = `https://wa.me/${whatsappNumber.replace('+', '')}?text=${text}`;
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="style.css" />
+      window.open(url, "_blank");
+    }
+
+    // Mobile menu toggle
+    function toggleMenu() {
+      document.getElementById("mobile-menu").classList.toggle("hidden");
+    }
+  </script>
 </head>
-<body>
-  <div class="container">
-    <!-- Header -->
-    <header>
-      <div class="brand">
-        <div class="logo">T&S</div>
-        <div>
-          <div style="font-weight:700">Taste N Stay Catering</div>
-          <div style="font-size:12px;color:var()">
-            Events • Weddings • Corporate • Private
+<body class="text-gray-800 bg-gray-50 scroll-smooth">
+
+  <!-- Navbar -->
+  <header class="bg-white shadow fixed w-full z-10">
+    <div class="container mx-auto flex justify-between items-center py-4 px-6">
+      <h1 class="text-2xl font-bold text-yellow-600">Taste & Stay</h1>
+      <nav class="hidden md:flex space-x-6">
+        <a href="#home" class="hover:text-yellow-600">Home</a>
+        <a href="#about" class="hover:text-yellow-600">About</a>
+        <a href="#services" class="hover:text-yellow-600">Services</a>
+        <a href="#gallery" class="hover:text-yellow-600">Gallery</a>
+        <a href="#contact" class="hover:text-yellow-600">Contact</a>
+      </nav>
+      <button class="md:hidden focus:outline-none" onclick="toggleMenu()">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white shadow">
+      <nav class="flex flex-col space-y-2 p-4 text-center">
+        <a href="#home" class="hover:text-yellow-600" onclick="toggleMenu()">Home</a>
+        <a href="#about" class="hover:text-yellow-600" onclick="toggleMenu()">About</a>
+        <a href="#services" class="hover:text-yellow-600" onclick="toggleMenu()">Services</a>
+        <a href="#gallery" class="hover:text-yellow-600" onclick="toggleMenu()">Gallery</a>
+        <a href="#contact" class="hover:text-yellow-600" onclick="toggleMenu()">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="relative bg-cover bg-center h-screen" style="background-image: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1600&q=80');">
+    <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+    <div class="relative z-10 flex flex-col justify-center items-center h-full text-center text-white px-4 md:px-8">
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4 md:mb-6 drop-shadow-lg leading-tight">Welcome to Taste & Stay</h2>
+      <p class="text-base md:text-lg mb-6 md:mb-8 max-w-xl mx-auto px-4 md:px-0">Delicious food, perfect service, and unforgettable experiences crafted to satisfy every taste.</p>
+      <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 w-full max-w-md px-4 sm:px-0">
+        <a href="#services" class="w-full sm:w-auto bg-yellow-500 hover:bg-yellow-600 text-white px-6 py-3 rounded-full font-semibold transition text-sm md:text-base text-center">Explore Services</a>
+        <a href="https://wa.me/233596027754?text=Hello%20Taste%20N%20Stay!%20I%20would%20like%20to%20book%20your%20catering%20services." 
+           target="_blank"
+           class="w-full sm:w-auto bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-full font-semibold transition text-sm md:text-base text-center">
+           Book Us for Your Event
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-16 bg-white">
+    <div class="container mx-auto text-center px-6">
+      <h3 class="text-3xl font-bold mb-4 text-yellow-600">About Us</h3>
+      <p class="max-w-3xl mx-auto text-gray-600 leading-relaxed">
+        At <strong>Taste & Stay</strong>, we turn every meal into a memorable event. 
+        Our passion for great taste and attention to detail ensures that your guests experience joy in every bite.
+        Whether it's a wedding, birthday, or corporate event, we bring flavor and style to your table.
+      </p>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="bg-gray-100 py-16">
+    <div class="container mx-auto text-center px-6">
+      <h3 class="text-3xl font-bold mb-8 text-yellow-600">Our Services</h3>
+      <div class="grid md:grid-cols-4 gap-8">
+        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+          <img src="https://plus.unsplash.com/premium_photo-1754269315947-ec644ecca214?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NjB8fGdoYW5hJTIwRXZlbnQlMjBDYXRlcmluZ3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=600" class="rounded-lg mb-4 h-60 transform transition hover:scale-110" alt="">
+          <h4 class="text-xl font-semibold mb-2">Event Catering</h4>
+          <p class="text-gray-600">Professional catering for weddings, parties, and special occasions with tailored menus.</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+          <img src="https://plus.unsplash.com/premium_photo-1673108852141-e8c3c22a4a22?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Zm9vZHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=600" class="rounded-lg mb-4 h-60 transform transition hover:scale-110" alt="">
+          <h4 class="text-xl font-semibold mb-2">Corporate Catering</h4>
+          <p class="text-gray-600">Fresh, high-quality meals perfect for meetings, conferences, and business events.</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+          <img src="https://i.pinimg.com/1200x/83/9c/96/839c96befa98396ac196365b952ecd54.jpg" class="rounded-lg mb-4 h-60 w-full transform transition hover:scale-110" alt="">
+          <h4 class="text-xl font-semibold mb-2">Home Delivery</h4>
+          <p class="text-gray-600">Enjoy your favorite Taste & Stay meals from the comfort of your home,  fresh and fast</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+          <img src="https://i.pinimg.com/736x/2f/0c/b0/2f0cb0073774332c894bfc6ffd65d599.jpg" class="rounded-lg mb-4 h-60 w-full transform transition hover:scale-110" alt="">
+          <h4 class="text-xl font-semibold mb-2">Cakes & Pastries</h4>
+          <p class="text-gray-600">Custom-made cakes and sweet pastries that make every celebration even more delightful.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section id="gallery" class="py-16 bg-white">
+    <div class="container mx-auto text-center px-6">
+      <h3 class="text-4xl font-bold mb-8 text-yellow-600">Our Food Gallery</h3>
+      
+      <!-- Traditional Dishes -->
+      <div class="mb-12">
+        <h4 class="text-2xl font-semibold mb-6 text-gray-800">Traditional Delicacies</h4>
+        <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          <div class="group relative overflow-hidden rounded-lg shadow-lg">
+            <img src="https://capecoastmall.com/wp-content/uploads/2024/10/321960342_1542516722926641_1566021690315033806_n.jpg" class="w-full h-full object-cover transform transition hover:scale-110" alt="Jollof Rice">
+            <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-100 transition">
+              <p class="text-white font-medium">Special Jollof Rice</p>
+            </div>
+          </div>
+          <div class="group relative overflow-hidden rounded-lg shadow-lg">
+            <img src="http://sw01.bcc.cuny.edu/leslie.twimasi/images/riceandbeans.jpeg" class="w-full h-full object-cover transform transition hover:scale-110" alt="Waakye">
+            <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-100 transition">
+              <p class="text-white font-medium">Waakye Special</p>
+            </div>
+          </div>
+          <div class="group relative overflow-hidden rounded-lg shadow-lg">
+            <img src="https://i.pinimg.com/1200x/21/03/56/21035675ebc7510ca89942d88ba378b2.jpg" class="w-full h-full object-cover transform transition hover:scale-110" alt="Banku">
+            <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-100 transition">
+              <p class="text-white font-medium">Banku with Okro Soup</p>
+            </div>
+          </div>
+          <div class="group relative overflow-hidden rounded-lg shadow-lg">
+            <img src="https://i.pinimg.com/1200x/84/45/24/844524a89db4265988475505a4f54aea.jpg" class="w-full h-full object-cover transform transition hover:scale-110" alt="Fufu">
+            <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-100 transition">
+              <p class="text-white font-medium">Fufu with Light Soup</p>
+            </div>
           </div>
         </div>
       </div>
-      <nav>
-        <a href="#menu">Menu</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#testimonials">Testimonials</a>
-        <a href="#contact">Contact</a>
-        <a class="cta" id="bookNowBtn">Book Now</a>
-      </nav>
-    </header>
 
-    <!-- Hero Section -->
-    <main>
-      <section class="hero">
-        <div class="hero-card">
-          <h1>Delicious food. Memorable events.</h1>
-          <p class="lead">
-            We craft bespoke menus and deliver flawless catering for weddings, 
-            corporate events, and private celebrations. Fresh ingredients, 
-            beautiful presentation, and professional service.
-          </p>
-          <div class="buttons">
-            <button class="btn-primary" id="bookTop">Book an Event</button>
-            <button 
-              class="btn-outline" 
-              onclick="document.getElementById('menu').scrollIntoView({behavior:'smooth'})"
-            >
-              View Menu
-            </button>
-          </div>
-
-          <div class="facts" aria-hidden="true">
-            <div class="fact">
-              <strong>10+</strong>
-              <span style="color:var(--muted);font-size:13px">Years Experience</span>
-            </div>
-            <div class="fact">
-              <strong>2000+</strong>
-              <span style="color:var(--muted);font-size:13px">Events Served</span>
-            </div>
-            <div class="fact">
-              <strong>120+</strong>
-              <span style="color:var(--muted);font-size:13px">Menu Items</span>
+      <!-- Continental Cuisine -->
+      <div class="mb-12">
+        <h4 class="text-2xl font-semibold mb-6 text-gray-800">Continental Cuisine</h4>
+        <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          <div class="group relative overflow-hidden rounded-lg shadow-lg">
+            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&q=80&w=1000" class="w-full h-70 object-cover transform transition hover:scale-110" alt="Pizza">
+            <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-100 transition">
+              <p class="text-white font-medium">Gourmet Pizza</p>
             </div>
           </div>
-
-          <div style="margin-top:16px;color:var();font-size:14px">
-            Custom packages available. Ask about dietary options 
-            (vegetarian, vegan, halal).
+          <div class="group relative overflow-hidden rounded-lg shadow-lg">
+            <img src="https://i.pinimg.com/1200x/29/75/65/297565eab96ce3a2ad81ffb7c55c00d9.jpg" class="w-full h-70 object-cover transform transition hover:scale-110" alt="Pasta">
+            <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-100 transition">
+              <p class="text-white font-medium">Creamy Pasta</p>
+            </div>
           </div>
-        </div>
-
-        <aside style="display:flex;flex-direction:column;gap:12px">
-          <div style="border-radius:14px;overflow:hidden">
-            <img 
-              src="/img/fries.jpg" 
-              alt="Plated food" 
-              style="width:100%;height:260px;object-fit:cover" 
-            />
+          <div class="group relative overflow-hidden rounded-lg shadow-lg">
+            <img src="https://i.pinimg.com/736x/1a/cf/b8/1acfb88db086cbec7dde3b31a5512e8f.jpg" class="w-full h-70 object-cover transform transition hover:scale-110" alt="Burger">
+            <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-100 transition">
+              <p class="text-white font-medium">Gourmet Burger</p>
+            </div>
           </div>
-          <div style="display:flex;gap:10px">
-            <img 
-              src="https://images.unsplash.com/photo-1543362906-acfc16c67564?q=80&w=500&auto=format&fit=crop" 
-              alt="chef" 
-              style="width:50%;height:120px;object-fit:cover;border-radius:10px" 
-            />
-            <img 
-              src="https://images.unsplash.com/photo-1478145046317-39f10e56b5e9?q=80&w=500&auto=format&fit=crop" 
-              alt="setup" 
-              style="width:50%;height:120px;object-fit:cover;border-radius:10px" 
-            />
-          </div>
-        </aside>
-      </section>
-
-      <!-- Services & Menu -->
-      <section id="menu" class="grid-2">
-        <!-- <a href="#service"></a> -->
-        <div class="service">
-          <h3 style="margin-top:0">Our Services</h3>
-          <ul style="padding-left:16px;color:var()">
-            <li>Wedding Catering — Full-service or buffet.</li>
-            <li>Corporate Events — Lunches, conferences, cocktail receptions.</li>
-            <li>Private Parties — Birthdays, anniversaries, graduations.</li>
-            <li>Menu Design & Tasting Sessions.</li>
-            <li>Delivery & Setup.</li>
-          </ul>
-          <div style="margin-top:12px">
-            <strong>Starting at:</strong>
-            <div style="font-size:20px;margin-top:6px">GHS 45 per person</div>
-            <div style="color:var(--muted);font-size:13px">
-              (Custom packages available — enquire for group discounts)
+          <div class="group relative overflow-hidden rounded-lg shadow-lg">
+            <img src="https://i.pinimg.com/1200x/a0/91/f7/a091f73d3a0c1f2fa550a90f6fd76096.jpg" class="w-full h-70 object-cover transform transition hover:scale-110" alt="Salad">
+            <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-100 transition">
+              <p class="text-white font-medium">Fresh Garden Salad</p>
             </div>
           </div>
         </div>
+      </div>
 
-        <div class="service">
-          <h3 style="margin-top:0">Sample Menu</h3>
-          <div class="menu-list">
-            <div class="menu-item">
-              <span>Jollof Rice with Grilled Chicken</span><span>GHS 35</span>
-            </div>
-            <div class="menu-item">
-              <span>Banku & Okro Stew (Vegetarian option)</span><span>GHS 38</span>
-            </div>
-            <div class="menu-item">
-              <span>Beef Kebabs & Mixed Salad</span><span>GHS 40</span>
-            </div>
-            <div class="menu-item">
-              <span>Assorted Canapés (per dozen)</span><span>GHS 60</span>
-            </div>
-            <div class="menu-item">
-              <span>Fruit Platter</span><span>GHS 25</span>
+      <!-- Desserts & Pastries -->
+      <div class="mb-12">
+        <h4 class="text-2xl font-semibold mb-6 text-gray-800">Desserts & Pastries</h4>
+        <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          <div class="group relative overflow-hidden rounded-lg shadow-lg">
+            <img src="https://i.pinimg.com/1200x/db/bd/51/dbbd51bfc062e159720a48aa68ba51e3.jpg" class="w-full h-full object-cover transform transition hover:scale-110" alt="Custom Cake">
+            <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-100 transition">
+              <p class="text-white font-medium">Wedding Cake</p>
             </div>
           </div>
-          <div style="margin-top:10px;color:var(--muted);font-size:13px">
-            Prices are guides. Final quote provided after event details and guest count.
+          <div class="group relative overflow-hidden rounded-lg shadow-lg">
+            <img src="https://i.pinimg.com/736x/15/8b/4e/158b4e9bce896b3f91404cb8cff9961c.jpg" class="w-full h-full object-cover transform transition hover:scale-110" alt="Cupcakes">
+            <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-100 transition">
+              <p class="text-white font-medium">Assorted Cupcakes</p>
+            </div>
           </div>
-        </div>
-      </section>
-
-      <!-- Gallery -->
-      <section id="gallery">
-        <h3 style="margin-top:32px">Gallery</h3>
-        <div class="gallery" aria-hidden="true">
-          <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1400&auto=format&fit=crop" alt="food 1" />
-          <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?q=80&w=1400&auto=format&fit=crop" alt="food 2" />
-          <img src="/img/yam.jpg" alt="food 3" />
-          <img src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?q=80&w=1400&auto=format&fit=crop" alt="food 4" />
-          <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=1400&auto=format&fit=crop" alt="food 5" />
-          <img src="https://images.unsplash.com/photo-1528605248644-14dd04022da1?q=80&w=1400&auto=format&fit=crop" alt="food 6" />
-          <img src="https://unsplash.com/photos/a-wooden-cutting-board-topped-with-lots-of-food-J6IraTysKvU" alt="food 7" />
-          <img src="/img/fries.jpg" alt="food 8" />
-          <img src="https://images.unsplash.com/photo-1542367594-de8aefeb1d44?q=80&w=1400&auto=format&fit=crop" alt="food 9" />
-          <img src="https://images.unsplash.com/photo-1516685018646-549198525c1c?q=80&w=1400&auto=format&fit=crop" alt="food 10" />
-          <img src="https://images.unsplash.com/photo-1473093226795-af9932fe5856?q=80&w=1400&auto=format&fit=crop" alt="food 11" />
-          <img src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?q=80&w=1400&auto=format&fit=crop" alt="food 12" />
-        </div>
-      </section>
-
-      <!-- Testimonials -->
-      <section id="testimonials">
-        <h3 style="margin-top:32px">What clients say</h3>
-        <div class="testimonials">
-          <div class="testimonial">
-            <strong>Elise N.</strong>
-            <p style="color:var(--muted);margin-top:8px">
-              "Professional team and the food was incredible. Every guest asked for seconds — highly recommend!"
-            </p>
+          <div class="group relative overflow-hidden rounded-lg shadow-lg">
+            <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&q=80&w=1000" class="w-full h-full object-cover transform transition hover:scale-110" alt="Dessert">
+            <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-100 transition">
+              <p class="text-white font-medium">Chocolate Dessert</p>
+            </div>
           </div>
-          <div class="testimonial">
-            <strong>Kwame A.</strong>
-            <p style="color:var(--muted);margin-top:8px">
-              "Flawless set up and on-time service. Booking was easy and the menu tasting helped a lot."
-            </p>
-          </div>
-          <div class="testimonial">
-            <strong>Rita M.</strong>
-            <p style="color:var(--muted);margin-top:8px">
-              "Amazing presentation and great value. Our wedding reception glowed because of them."
-            </p>
+          <div class="group relative overflow-hidden rounded-lg shadow-lg">
+            <img src="https://i.pinimg.com/736x/fa/eb/eb/faebeb44dbeab4a6f55f831a65f6cd14.jpg" class="w-full h-full object-cover transform transition hover:scale-110" alt="Pastries">
+            <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-100 transition">
+              <p class="text-white font-medium">Fresh Pastries</p>
+            </div>
           </div>
         </div>
-      </section>
+      </div>
 
-      <!-- Contact -->
-      <section id="contact">
-        <h3 style="margin-top:32px">Contact & Enquiries</h3>
-        <div style="display:grid;grid-template-columns:1fr 360px;gap:18px;margin-top:12px;align-items:start">
-          <div style="background:var(--card);padding:16px;border-radius:12px">
-            <form id="contactForm" onsubmit="return handleContact(event)">
-              <label for="name">Full name</label>
-              <input id="name" required placeholder="Your full name" />
-
-              <label for="email" style="margin-top:10px">Email</label>
-              <input id="email" type="email" required placeholder="you@example.com" />
-
-              <label for="message" style="margin-top:10px">Message</label>
-              <textarea 
-                id="message" 
-                rows="4" 
-                placeholder="Tell us about your event: date, guest count, type of service..." 
-                required
-              ></textarea>
-
-              <div style="margin-top:12px;display:flex;gap:10px;align-items:center">
-                <button class="btn-primary" type="submit">Send Enquiry</button>
-                <button type="button" class="btn-outline" onclick="openBooking()">Quick Book</button>
-              </div>
-            </form>
-          </div>
-
-          <aside style="background:var(--glass);padding:16px;border-radius:12px;color:var(--muted)">
-            <div><strong>Phone:</strong> +233 24 000 0000</div>
-            <div style="margin-top:8px"><strong>Email:</strong> hello@ghentilcatering.com</div>
-            <div style="margin-top:8px"><strong>Address:</strong> Accra, Ghana</div>
-            <div style="margin-top:10px;font-size:13px">
-              Open Mon-Sat • Tasting appointments by request
+      <!-- Special Events -->
+      <div>
+        <h4 class="text-2xl font-semibold mb-6 text-gray-800">Special Events</h4>
+        <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          <div class="group relative overflow-hidden rounded-lg shadow-lg">
+            <img src="https://i.pinimg.com/1200x/36/08/9d/36089d4a1c808586b5907ae7477f87be.jpg" class="w-full h-64 object-cover transform transition hover:scale-110" alt="Wedding Buffet">
+            <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-100 transition">
+              <p class="text-white font-medium">Wedding Buffet</p>
             </div>
-          </aside>
+          </div>
+          <div class="group relative overflow-hidden rounded-lg shadow-lg">
+            <img src="https://i.pinimg.com/736x/7d/64/c2/7d64c2df283d158cafdd3ad0e79bc664.jpg" class="w-full h-64 object-cover transform transition hover:scale-110" alt="Corporate Event">
+            <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-100 transition">
+              <p class="text-white font-medium">Corporate Events</p>
+            </div>
+          </div>
+          <div class="group relative overflow-hidden rounded-lg shadow-lg">
+            <img src="https://i.pinimg.com/736x/63/93/90/639390069637b1cb936b8232fa720b29.jpg" class="w-full h-64 object-cover transform transition hover:scale-110" alt="Birthday Party">
+            <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-100 transition">
+              <p class="text-white font-medium">Birthday Celebrations</p>
+            </div>
+          </div>
+          <div class="group relative overflow-hidden rounded-lg shadow-lg">
+            <img src="https://i.pinimg.com/1200x/49/da/4b/49da4b070089e2ca83d2fe9096dc3ec5.jpg" class="w-full h-64 object-cover transform transition hover:scale-110" alt="Outdoor Event">
+            <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-100 transition">
+              <p class="text-white font-medium">Outdoor Events</p>
+            </div>
+          </div>
         </div>
-      </section>
-    </main>
+      </div>
+    </div>
+  </section>
 
-    <!-- Footer -->
-     <!-- Add this in <head> for Font Awesome icons -->
-    
+  <!-- Testimonials Section -->
+  <section class="py-16 bg-gradient-to-br from-yellow-50 to-orange-50">
+    <div class="container mx-auto px-6">
+      <h3 class="text-4xl font-bold mb-12 text-center text-yellow-600">What Our Clients Say</h3>
+      
+      <!-- Featured Testimonials -->
+      <div class="grid md:grid-cols-3 gap-8 mb-16">
+        <!-- Testimonial 1 -->
+        <div class="bg-white p-8 rounded-2xl shadow-lg transform hover:-translate-y-1 transition-transform duration-300">
+          <div class="flex items-center mb-4">
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400" 
+                 alt="Sarah Johnson" 
+                 class="w-16 h-16 rounded-full object-cover border-4 border-yellow-200">
+            <div class="ml-4">
+              <h4 class="font-semibold text-lg">Sarah Johnson</h4>
+              <p class="text-yellow-600 text-sm">Wedding Reception</p>
+            </div>
+          </div>
+          <p class="text-gray-600 italic">"The food was absolutely incredible! Every guest at my wedding couldn't stop talking about how delicious everything was. The presentation was beautiful and the service was impeccable."</p>
+          <div class="mt-4 flex text-yellow-500">
+            ⭐⭐⭐⭐⭐
+          </div>
+        </div>
 
-    <footer style="background:linear-gradient(135deg, #111 0%, #222 40%, #b8860b 100%); color:#eee; padding:40px 20px; margin-top:40px;">
-    <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:flex-start; gap:20px; max-width:1200px; margin:0 auto;">
+        <!-- Testimonial 2 -->
+        <div class="bg-white p-8 rounded-2xl shadow-lg transform hover:-translate-y-1 transition-transform duration-300">
+          <div class="flex items-center mb-4">
+            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400" 
+                 alt="David Thompson" 
+                 class="w-16 h-16 rounded-full object-cover border-4 border-yellow-200">
+            <div class="ml-4">
+              <h4 class="font-semibold text-lg">David Thompson</h4>
+              <p class="text-yellow-600 text-sm">Corporate Event</p>
+            </div>
+          </div>
+          <p class="text-gray-600 italic">"Taste & Stay exceeded our expectations for our company's annual meeting. The variety of options suited everyone's dietary needs, and their professionalism was outstanding."</p>
+          <div class="mt-4 flex text-yellow-500">
+            ⭐⭐⭐⭐⭐
+          </div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="bg-white p-8 rounded-2xl shadow-lg transform hover:-translate-y-1 transition-transform duration-300">
+          <div class="flex items-center mb-4">
+            <img src="https://images.unsplash.com/photo-1573496799652-408c2ac9fe98?w=400" 
+                 alt="Amanda Foster" 
+                 class="w-16 h-16 rounded-full object-cover border-4 border-yellow-200">
+            <div class="ml-4">
+              <h4 class="font-semibold text-lg">Amanda Foster</h4>
+              <p class="text-yellow-600 text-sm">Birthday Celebration</p>
+            </div>
+          </div>
+          <p class="text-gray-600 italic">"The birthday cake they made was not only beautiful but also delicious! Their attention to detail and creativity made my daughter's birthday party extra special."</p>
+          <div class="mt-4 flex text-yellow-500">
+            ⭐⭐⭐⭐⭐
+          </div>
+        </div>
+      </div>
+
+      <!-- More Testimonials -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Testimonial 4 -->
+        <div class="bg-white p-6 rounded-xl shadow-md transform hover:-translate-y-1 transition-transform duration-300">
+          <div class="flex items-center mb-3">
+            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400" 
+                 alt="Rebecca Chen" 
+                 class="w-12 h-12 rounded-full object-cover border-2 border-yellow-200">
+            <div class="ml-3">
+              <h4 class="font-semibold">Rebecca Chen</h4>
+              <p class="text-yellow-600 text-xs">Engagement Party</p>
+            </div>
+          </div>
+          <p class="text-gray-600 text-sm italic">"Their traditional dishes were a hit at our engagement party! The fusion of flavors was perfect, and they were so accommodating with our special requests."</p>
+          <div class="mt-3 flex text-yellow-500 text-sm">
+            ⭐⭐⭐⭐⭐
+          </div>
+        </div>
+
+        <!-- Testimonial 5 -->
+        <div class="bg-white p-6 rounded-xl shadow-md transform hover:-translate-y-1 transition-transform duration-300">
+          <div class="flex items-center mb-3">
+            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400" 
+                 alt="Michael Roberts" 
+                 class="w-12 h-12 rounded-full object-cover border-2 border-yellow-200">
+            <div class="ml-3">
+              <h4 class="font-semibold">Michael Roberts</h4>
+              <p class="text-yellow-600 text-xs">Office Party</p>
+            </div>
+          </div>
+          <p class="text-gray-600 text-sm italic">"Regular caterer for our office events. Always on time, consistently great food, and their staff is incredibly professional. Best corporate catering service in Accra!"</p>
+          <div class="mt-3 flex text-yellow-500 text-sm">
+            ⭐⭐⭐⭐⭐
+          </div>
+        </div>
+
+        <!-- Testimonial 6 -->
+        <div class="bg-white p-6 rounded-xl shadow-md transform hover:-translate-y-1 transition-transform duration-300">
+          <div class="flex items-center mb-3">
+            <img src="https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?w=400" 
+                 alt="Grace Owusu" 
+                 class="w-12 h-12 rounded-full object-cover border-2 border-yellow-200">
+            <div class="ml-3">
+              <h4 class="font-semibold">Grace Owusu</h4>
+              <p class="text-yellow-600 text-xs">Family Reunion</p>
+            </div>
+          </div>
+          <p class="text-gray-600 text-sm italic">"They catered our family reunion and the food was amazing! The jollof rice and waakye were perfect, and everyone loved the pastries. Will definitely use them again!"</p>
+          <div class="mt-3 flex text-yellow-500 text-sm">
+            ⭐⭐⭐⭐⭐
+          </div>
+        </div>
+
+        <!-- Testimonial 7 -->
+        <div class="bg-white p-6 rounded-xl shadow-md transform hover:-translate-y-1 transition-transform duration-300">
+          <div class="flex items-center mb-3">
+            <img src="https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=400" 
+                 alt="Daniel Mensah" 
+                 class="w-12 h-12 rounded-full object-cover border-2 border-yellow-200">
+            <div class="ml-3">
+              <h4 class="font-semibold">Daniel Mensah</h4>
+              <p class="text-yellow-600 text-xs">Wedding Anniversary</p>
+            </div>
+          </div>
+          <p class="text-gray-600 text-sm italic">"The anniversary cake was a masterpiece! Not only did it look stunning, but it tasted heavenly. Their attention to our dietary preferences was much appreciated."</p>
+          <div class="mt-3 flex text-yellow-500 text-sm">
+            ⭐⭐⭐⭐⭐
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="bg-gray-100 py-16">
+    <div class="container mx-auto text-center px-6">
+      <h3 class="text-3xl font-bold mb-8 text-yellow-600">Get In Touch</h3>
+      <form onsubmit="sendToWhatsApp(event)" class="max-w-lg mx-auto bg-white p-8 rounded-lg shadow space-y-4">
+        <input id="name" type="text" placeholder="Your Name" required class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-yellow-500">
+        <input id="email" type="email" placeholder="Your Email" required class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-yellow-500">
+        <textarea id="message" placeholder="Your Message" rows="5" required class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-yellow-500"></textarea>
+        <button type="submit" class="bg-yellow-500 hover:bg-yellow-600 text-white px-6 py-3 rounded-full font-semibold w-full transition">Send Message via WhatsApp</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gradient-to-r from-red-700 via-orange-600 to-yellow-500 text-white py-12">
+  <div class="container mx-auto px-6">
+    <div class="grid md:grid-cols-3 gap-8 text-center md:text-left items-start">
+      
+      <!-- Brand Info -->
+      <div>
+        <h4 class="text-3xl font-extrabold mb-3 tracking-wide">Taste & Stay</h4>
+        <p class="text-sm opacity-90 leading-relaxed">
+          Serving happiness through taste and style. From fine catering to custom cakes — we make every event deliciously memorable.
+        </p>
+      </div>
+      
+      <!-- Quick Contact -->
+      <div>
+        <h5 class="font-semibold text-lg mb-3 uppercase tracking-wider">Contact Us</h5>
+        <p class="text-sm mb-2">
+          <span class="bg-white p-2 rounded-full inline-flex items-center justify-center">📞</span>
+          <span class="ml-2">+233 59 602 7754</span>
+        </p>
         
-        <!-- Brand & Motto -->
-        <div style="flex:1; min-width:200px;">
-        <strong style="font-size:18px;">Ghentil Catering</strong>
-        <div style="font-size:13px; color:#ddd; margin-top:6px;">
-            Handcrafted catering for every celebration.
-        </div>
-        <!-- Social Media -->
-        <div style="margin-top:15px; display:flex; gap:15px; font-size:20px;">
-            <a href="https://facebook.com" target="_blank" style="color:#fff; text-decoration:none;">
-            <i class="fab fa-facebook"></i>
-            </a>
-            <a href="https://instagram.com" target="_blank" style="color:#fff; text-decoration:none;">
-            <i class="fab fa-instagram"></i>
-            </a>
-            <a href="https://tiktok.com" target="_blank" style="color:#fff; text-decoration:none;">
-            <i class="fab fa-tiktok"></i>
-            </a>
-        </div>
-        </div>
+        <p class="text-sm mb-4">
+          <span class="bg-white p-2 rounded-full inline-flex items-center justify-center">📍</span>
+          <span class="ml-2">Oyarifa, behind special ice water company.</span>
+        </p>
+        
+      </div>
+      
+      <!-- Social Links -->
+      <div>
+        <h5 class="font-semibold text-lg mb-3 uppercase tracking-wider">Follow Us</h5>
+        <div class="flex justify-center md:justify-start space-x-5">
+          
+          <!-- TikTok -->
+          <a href="https://www.tiktok.com/@taste_and_stay_catering?_t=ZM-904xyjlhWrz&_r=1"
+             target="_blank"
+             class="bg-white/20 hover:bg-white/30 p-3 rounded-full transition transform hover:scale-110">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-6 h-6 text-white" viewBox="0 0 24 24">
+              <path d="M12.001 2.002c1.657 0 3.185.672 4.292 1.757a6.06 6.06 0 0 0 2.708-.757v3.003a6.014 6.014 0 0 1-3-.806v8.798c0 3.314-2.687 6.001-6.001 6.001A6.001 6.001 0 0 1 4 13.998c0-3.314 2.687-6.001 6.001-6.001.31 0 .616.023.915.066v3.066a3.001 3.001 0 1 0 2.085 2.852V2.002z"/>
+            </svg>
+          </a>
 
-        <!-- Quick Links -->
-        <div style="flex:1; min-width:150px;">
-        <div style="font-weight:bold; margin-bottom:8px;">Quick Links</div>
-        <ul style="list-style:none; padding:0; margin:0; font-size:13px; color:#ddd;">
-            <li><a href="#home" style="color:#fff; text-decoration:none;">Home</a></li>
-            <li><a href="#menu" style="color:#fff; text-decoration:none;">Menu</a></li>
-            <li><a href="#about" style="color:#fff; text-decoration:none;">About</a></li>
-            <li><a href="#contact" style="color:#fff; text-decoration:none;">Contact</a></li>
-        </ul>
-        </div>
+          <!-- Instagram -->
+          <a href="https://www.instagram.com/tastenstay_bakes_and_catering?utm_source=qr"
+             target="_blank"
+             class="bg-white/20 hover:bg-white/30 p-3 rounded-full transition transform hover:scale-110">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-6 h-6 text-white" viewBox="0 0 24 24">
+              <path d="M7 2C4.243 2 2 4.243 2 7v10c0 2.757 2.243 5 5 5h10c2.757 0 5-2.243 5-5V7c0-2.757-2.243-5-5-5H7zm0 2h10c1.654 0 3 1.346 3 3v10c0 1.654-1.346 3-3 3H7c-1.654 0-3-1.346-3-3V7c0-1.654 1.346-3 3-3zm5 3a5 5 0 1 0 .001 10.001A5 5 0 0 0 12 7zm0 2a3 3 0 1 1-.001 6.001A3 3 0 0 1 12 9zm4.5-3a1.5 1.5 0 1 1-.001 3.001A1.5 1.5 0 0 1 16.5 6z"/>
+            </svg>
+          </a>
 
-        <!-- Contact Info -->
-        <div style="flex:1; min-width:200px;">
-        <div style="font-weight:bold; margin-bottom:8px;">Contact</div>
-        <div style="font-size:13px; color:#ddd;">
-            📍 Accra, Ghana <br>
-            📞 +233 24 123 4567 <br>
-            ✉️ info@ghentilcatering.com
-        </div>
-        </div>
+          <!-- Snapchat -->
+          <a href="https://snapchat.com/t/okMBYpHf"
+             target="_blank"
+             class="bg-white/20 hover:bg-white/30 p-3 rounded-full transition transform hover:scale-110">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-6 h-6 text-white" viewBox="0 0 24 24">
+              <path d="M12 2c3.86 0 7 3.14 7 7v2c0 2.48 1.29 3.57 2.48 4.52.37.3.62.73.52 1.19-.16.76-1.04.97-1.57 1.09-.36.08-.71.14-.96.32-.43.32-.62.81-.68 1.14-.14.69.35 1.28.57 1.58.1.13.1.3.03.44-.25.47-1.23.75-2.17.9-.39.06-.84.12-1.17.29-.35.18-.73.51-.92.71-.57.6-1.37.81-2.03.81-.62 0-1.43-.21-2-.82-.19-.2-.57-.53-.92-.71-.33-.17-.78-.23-1.17-.29-.94-.15-1.92-.43-2.17-.9a.395.395 0 0 1 .03-.44c.22-.3.71-.89.57-1.58-.06-.33-.25-.82-.68-1.14-.25-.18-.6-.24-.96-.32-.53-.12-1.41-.33-1.57-1.09-.1-.46.15-.89.52-1.19C4.71 14.57 6 13.48 6 11V9c0-3.86 3.14-7 7-7z"/>
+            </svg>
+          </a>
 
-        <!-- Map Location -->
-        <div style="flex:1; min-width:250px;">
-        <div style="font-weight:bold; margin-bottom:8px;">Find Us</div>
-        <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3971.034034547037!2d-0.18696492524319252!3d5.603716533447476!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdf9b1e4b0d7f1b%3A0x8bb5f1f2e75c9c0!2sAccra%2C%20Ghana!5e0!3m2!1sen!2sgh!4v1695766930484!5m2!1sen!2sgh" 
-            width="100%" 
-            height="150" 
-            style="border:0; border-radius:8px;" 
-            allowfullscreen="" 
-            loading="lazy">
-        </iframe>
+          <a href="https://wa.me/233596027754" target="_blank"
+           class="inline-block bg-green-500 text-white font-semibold px-4 py-2 rounded-full hover:bg-green-600 transition">
+          Chat on WhatsApp
+        </a>
         </div>
-
+      </div>
     </div>
 
-    <div style="text-align:center; margin-top:30px; font-size:13px; color:#eee;">
-        © <span id="year"></span> Ghentil Catering. All rights reserved.
+    <div class=" mt-10 pt-4 text-center">
+      <p class="text-sm opacity-90">
+        © 2025 <span class="font-semibold">Taste & Stay Catering</span>. All Rights Reserved.
+      </p>
     </div>
-    </footer>
+  </div>
+</footer>
 
 
-    <!-- Script -->
-     <script src="script.js"></script>
+<!-- Font Awesome for social icons -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+
+<!-- Font Awesome for social icons -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
 
 </body>
 </html>
